@@ -15,7 +15,7 @@ public class CalculatorTest {
 		cal = new Calculator();
 	}
 	
-	@DisplayName("더하기 테스트")
+	@DisplayName("더하기 테스트123")
 	@Test
 	public void addTest() {
 		assertThat(10).isEqualTo(cal.add(4, 6));
