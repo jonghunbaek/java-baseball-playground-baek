@@ -1,4 +1,4 @@
-package baseballtest;
+package baseball;
 
 public class BaseballUtils {
 

@@ -1,11 +1,37 @@
 package baseballtest;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class BallTest {
+import baseball.CheckBall;
 
-	public static void main(String[] args) {
-		System.out.println(Integer.parseInt("rtrt"));
+import static org.assertj.core.api.Assertions.*;
+
+public class BallTest {
+	
+	CheckBall checkBall;
+	
+	@BeforeEach
+	public void setUp() {
+		checkBall = new CheckBall();
+	}
+	
+	@Test
+	@DisplayName("스트라이크 체크")
+	public void checkStrike() {
+		int test = 1;
+		int comChar = 1;
+		int userChar = 1;
+		assertThat(test).isEqualTo(checkBall.checkStrike(comChar, userChar, 0));
+	}
+	
+	@Test
+	@DisplayName("총 스트라이크 개수 체크")
+	public void countStrike() {
+		int test = 2;
+		String computer = "123";
+		String user = "124";
+		assertThat(test).isEqualTo(checkBall.countStrike(computer, user));
 	}
 }

@@ -3,6 +3,9 @@ package baseballtest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import baseball.BaseballUtils;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class BaseballUtilTest {
