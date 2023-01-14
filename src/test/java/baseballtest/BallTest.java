@@ -34,4 +34,14 @@ public class BallTest {
 		String user = "124";
 		assertThat(test).isEqualTo(checkBall.countStrike(computer, user));
 	}
+	
+	@Test
+	@DisplayName("볼 체크")
+	public void checkBall() {
+		int test = 1;
+		String userChar = "1";
+		String computer = "213";
+		
+		assertThat(test).isEqualTo(checkBall.checkBall(userChar, computer, 0));
+	}
 }
