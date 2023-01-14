@@ -17,8 +17,14 @@ public class BaseballUtilTest {
 	@Test
 	@DisplayName("int형 String 변환 테스트")
 	public void parseIntToString() {
-		String test = "123";
-		assertThat(test).isEqualTo(baseballUtils.intToString(123));
+		String test1 = "123";
+		assertThat(test1).isEqualTo(baseballUtils.intToString(123));
+		
+		boolean test2 = baseballUtils.isStringCanBeInt("test");
+		assertThat(test2).isFalse();
+		
+		boolean test3 = baseballUtils.isStringCanBeInt("123");
+		assertThat(test3).isTrue();
 	}
 	
 	@Test
@@ -34,4 +40,5 @@ public class BaseballUtilTest {
 		assertThat(test3).isTrue();
 		assertThat(test4).isFalse();
 	}
+	
 }
