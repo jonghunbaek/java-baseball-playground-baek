@@ -21,8 +21,8 @@ public class BallTest {
 	@DisplayName("스트라이크 체크")
 	public void checkStrike() {
 		int test = 1;
-		int comChar = 1;
-		int userChar = 1;
+		char comChar = 1;
+		char userChar = 1;
 		assertThat(test).isEqualTo(checkBall.checkStrike(comChar, userChar, 0));
 	}
 	
@@ -30,18 +30,28 @@ public class BallTest {
 	@DisplayName("총 스트라이크 개수 체크")
 	public void countStrike() {
 		int test = 2;
-		String computer = "123";
+		String com = "123";
 		String user = "124";
-		assertThat(test).isEqualTo(checkBall.countStrike(computer, user));
+		assertThat(test).isEqualTo(checkBall.countStrike(com, user));
 	}
 	
 	@Test
 	@DisplayName("볼 체크")
 	public void checkBall() {
 		int test = 1;
-		String userChar = "1";
+		char userChar = '1';
 		String computer = "213";
 		
 		assertThat(test).isEqualTo(checkBall.checkBall(userChar, computer, 0));
+	}
+	
+	@Test
+	@DisplayName("총 볼개수 체크")
+	public void countBall() {
+		int test = 2;
+		String com = "123";
+		String user = "214";
+		
+		assertThat(test).isEqualTo(checkBall.countBall(com, user));
 	}
 }
