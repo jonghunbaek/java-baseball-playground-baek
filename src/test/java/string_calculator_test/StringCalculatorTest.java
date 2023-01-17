@@ -22,8 +22,19 @@ public class StringCalculatorTest {
 		int result = 0;
 		String test1 = null;
 		String test2 = " ";
-		assertThat(result).isEqualTo(stringCalculator.textValidationCheck(test1));
-		assertThat(result).isEqualTo(stringCalculator.textValidationCheck(test2));
+		assertThat(result).isEqualTo(stringCalculator.textSplitBySeparator(test1));
+		assertThat(result).isEqualTo(stringCalculator.textSplitBySeparator(test2));
 	}
 	
+	@Test
+	@DisplayName("입력 문자 구분자로 나눈 후 덧셈")
+	public void textSplitBySeparator() {
+		int result1 = 6;
+		int result2 = 2;
+		String test1 = "1,2:3";
+		String test2 = "2";
+		
+		assertThat(result1).isEqualTo(stringCalculator.textSplitBySeparator(test1));
+		assertThat(result2).isEqualTo(stringCalculator.textSplitBySeparator(test2));
+	}
 }
