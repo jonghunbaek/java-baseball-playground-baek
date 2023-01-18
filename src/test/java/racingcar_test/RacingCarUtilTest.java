@@ -6,15 +6,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import racingcar.RacingCarGame;
+import racingcar.Car;
+import racingcar.RacingCarUtil;
 
-public class RacingCarGameTest {
+public class RacingCarUtilTest {
 	
-	RacingCarGame racingCarGame;
+	RacingCarUtil racingCarGame;
 	
 	@BeforeEach
 	public void setUp() {
-		racingCarGame = new RacingCarGame();
+		racingCarGame = new RacingCarUtil();
 	}
 
 	@Test
@@ -23,5 +24,11 @@ public class RacingCarGameTest {
 		String[] result = {"aa", "bb", "cc"};
 		String test = "aa,bb,cc";
 		assertThat(result).isEqualTo(racingCarGame.carTextSplit(test));
+	}
+	
+	@Test
+	@DisplayName("자동차 이름 5글자 이하 여부 확인 테스트")
+	public void carNameLengthValidation () {
+		assertThatThrownBy(() -> new Car("abcdef")).isInstanceOf(RuntimeException.class);
 	}
 }

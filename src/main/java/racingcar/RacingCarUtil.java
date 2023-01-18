@@ -1,6 +1,6 @@
 package racingcar;
 
-public class RacingCarGame {
+public class RacingCarUtil {
 
 	public String[] carTextSplit(String carText) {
 		return carText.split(",");
