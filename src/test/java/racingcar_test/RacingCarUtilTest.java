@@ -29,6 +29,6 @@ public class RacingCarUtilTest {
 	@Test
 	@DisplayName("자동차 이름 5글자 이하 여부 확인 테스트")
 	public void carNameLengthValidation () {
-		assertThatThrownBy(() -> new Car("abcdef")).isInstanceOf(RuntimeException.class);
+		assertThatThrownBy(() -> new Car("abcdef", 0)).isInstanceOf(RuntimeException.class);
 	}
 }
