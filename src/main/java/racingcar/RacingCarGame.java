@@ -1,10 +1,14 @@
 package racingcar;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class RacingCarGame {
 	
 	RacingCarUtil util = new RacingCarUtil();
 	
-	public void racingStart(String carsBefore, int times) {
+	public Car[] racingStart(String carsBefore, int times) {
 		String[] carsAfter = util.carTextSplit(carsBefore);
 		Car[] cars = new Car[carsAfter.length];
 		int[] ranNos = new int[carsAfter.length];
@@ -13,13 +17,16 @@ public class RacingCarGame {
 			cars[i] = new Car(carsAfter[i], 0);
 		}
 
+		
 		for (int i=0; i<times; i++) {
-			Car[] temp = checkMovingCar(cars, ranNos);
-			for (int j=0; j<temp.length; j++) {
-				System.out.println(temp[j].getCarName() + " : " + util.positionToString(temp[j].getPosition()));
+			cars = checkMovingCar(cars, ranNos);
+			for (int j=0; j<cars.length; j++) {
+				System.out.println(cars[j].getCarName() + " : " + util.positionToString(cars[j].getPosition()));
 			}
 			System.out.println();
 		}
+		
+		return cars;
 	}
 
 	private Car[] checkMovingCar(Car[] cars, int[] ranNos) {
@@ -39,6 +46,16 @@ public class RacingCarGame {
 	
 	public int createRandomNumber() {
 		return (int) (Math.random()*10);
+	}
+
+	public String checkWinners(Car[] test) {
+		Map<Integer, Integer> ranking = new HashMap<Integer, Integer>();
+		for (int i=0; i<test.length; i++) {
+			ranking.put(i, test[i].getPosition());
+		}
+		
+		
+		return null;
 	}
 
 }
