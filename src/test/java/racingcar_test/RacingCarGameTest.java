@@ -21,7 +21,7 @@ public class RacingCarGameTest {
 	}
 
 	@Test
-	@DisplayName("랜덤값 4이상일 경우 자동차 전진")
+	@DisplayName("랜덤값 4이상일 경우 자동차 전진 테스트")
 	public void moveForwardCar() {
 		int test = 5;
 		int result = 1;
