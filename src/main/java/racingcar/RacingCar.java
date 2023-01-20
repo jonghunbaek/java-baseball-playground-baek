@@ -16,7 +16,7 @@ public class RacingCar {
 		System.out.println("시도할 횟수는 몇회인가요?");
 		int n = sc.nextInt();
 		
-		Car[] result = rcg.racingStart(car, n);
+		System.out.println(rcg.checkWinners(rcg.racingStart(car, n)) + "가 최종 우승했습니다.");
 		
 	}
 }

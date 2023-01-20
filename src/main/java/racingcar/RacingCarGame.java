@@ -1,7 +1,9 @@
 package racingcar;
 
-import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class RacingCarGame {
@@ -48,14 +50,29 @@ public class RacingCarGame {
 		return (int) (Math.random()*10);
 	}
 
-	public String checkWinners(Car[] test) {
+	public String checkWinners(Car[] cars) {
 		Map<Integer, Integer> ranking = new HashMap<Integer, Integer>();
-		for (int i=0; i<test.length; i++) {
-			ranking.put(i, test[i].getPosition());
+		for (int i=0; i<cars.length; i++) {
+			ranking.put(i, cars[i].getPosition());
 		}
 		
+		List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(ranking.entrySet());
+		entryList.sort(new Comparator<Map.Entry<Integer, Integer>>() {
+			public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+				return o2.getValue() - o1.getValue();
+			}
+		});
 		
-		return null;
+		StringBuilder sb = new StringBuilder();
+		sb.append(cars[entryList.get(0).getKey()].getCarName());
+		
+		for (int i=1; i<entryList.size(); i++) {
+			if (entryList.get(0).getValue() == entryList.get(i).getValue()) {
+				sb.append(", " + cars[entryList.get(i).getKey()].getCarName());
+			}
+		}
+		
+		return sb.toString();
 	}
 
 }
