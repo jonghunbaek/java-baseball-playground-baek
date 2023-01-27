@@ -15,6 +15,15 @@ public class CarTest {
 		String test1 = "123456";
 		String test2 = "abcdef";
 		assertThatThrownBy(() -> new Car(test1, 0)).isInstanceOf(RuntimeException.class);
+		assertThatThrownBy(() -> new Car(test2, 0)).isInstanceOf(RuntimeException.class);
+	}
+	
+	@Test
+	@DisplayName("Car객체 생성 테스트")
+	public void constructCar() {
+		Car test = new Car("car1", 0);
+		Car result = new Car("car1", 0);
+		assertThat(result).isEqualTo(test);
 	}
 	
 }
