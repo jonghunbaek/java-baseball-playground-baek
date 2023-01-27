@@ -1,23 +1,33 @@
 package racingcar;
 
+import java.util.Objects;
+
 public class Car {
 
-	private String carName;
-	private int position;
+	public Name name;
+	public Position position;
 	
-	public Car (String carName, int position) {
-		if (carName.length() > 5) {
-			throw new RuntimeException("자동차의 이름은 5글자 이하여야 합니다.");
-		}
-		this.carName = carName;
-		this.position = position;
+	public Car(String name, int position) {
+		this.name = new Name(name);
+		this.position = new Position(position);
 	}
 
-	public String getCarName() {
-		return carName;
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, position);
 	}
 
-	public int getPosition() {
-		return position;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Car other = (Car) obj;
+		return Objects.equals(name, other.name) && Objects.equals(position, other.position);
 	}
+	
+	
 }

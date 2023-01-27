@@ -29,7 +29,8 @@ ex) git checkout -b apply-feedback
 ```
 - UI 설계
 - 자동차 이름 ","로 분리
-- Car class 생성(이름, 거리)
+- Car class 생성(이름, 거리) 및 유효성 체크
+- 이름, 거리 변수 wrapping
 - 자동차 이름 5자 이하 체크
 - 랜덤값이 4이상일 경우 자동차 전진
 - 위치값 문자 '-'로 변환
